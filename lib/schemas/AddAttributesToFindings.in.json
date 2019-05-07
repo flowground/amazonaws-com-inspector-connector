@@ -1,0 +1,99 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "attributes": [
+                    {
+                        "key": "Example",
+                        "value": "example"
+                    }
+                ],
+                "findingArns": [
+                    "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-8l1VIE0D/run/0-Z02cjjug/finding/0-T8yM9mEU"
+                ]
+            },
+            "properties": {
+                "attributes": {
+                    "description": "The array of attributes that you want to assign to specified findings.",
+                    "items": {
+                        "description": "This data type is used as a request parameter in the <a>AddAttributesToFindings</a> and <a>CreateAssessmentTemplate</a> actions.",
+                        "properties": {
+                            "key": {
+                                "description": "The attribute key.",
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "The value assigned to the attribute key.",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "key"
+                        ],
+                        "type": "object"
+                    },
+                    "maxItems": 10,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "findingArns": {
+                    "description": "The ARNs that specify the findings that you want to assign attributes to.",
+                    "items": {
+                        "maxLength": 300,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "maxItems": 10,
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "findingArns",
+                "attributes"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

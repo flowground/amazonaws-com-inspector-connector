@@ -1,0 +1,79 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "event": "ASSESSMENT_RUN_COMPLETED",
+                "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
+                "topicArn": "arn:aws:sns:us-west-2:123456789012:exampletopic"
+            },
+            "properties": {
+                "event": {
+                    "description": "The event for which you want to receive SNS notifications.",
+                    "enum": [
+                        "ASSESSMENT_RUN_STARTED",
+                        "ASSESSMENT_RUN_COMPLETED",
+                        "ASSESSMENT_RUN_STATE_CHANGED",
+                        "FINDING_REPORTED",
+                        "OTHER"
+                    ],
+                    "type": "string"
+                },
+                "resourceArn": {
+                    "description": "The ARN of the assessment template that is used during the event for which you want to receive SNS notifications.",
+                    "maxLength": 300,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "topicArn": {
+                    "description": "The ARN of the SNS topic to which the SNS notifications are sent.",
+                    "maxLength": 300,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "resourceArn",
+                "event",
+                "topicArn"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

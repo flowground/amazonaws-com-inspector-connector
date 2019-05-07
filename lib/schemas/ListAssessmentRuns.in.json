@@ -1,0 +1,186 @@
+{
+    "type": "object",
+    "properties": {
+        "maxResults": {
+            "required": false,
+            "type": "string"
+        },
+        "nextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "assessmentTemplateArns": [
+                    "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw"
+                ],
+                "maxResults": 123
+            },
+            "properties": {
+                "assessmentTemplateArns": {
+                    "description": "The ARNs that specify the assessment templates whose assessment runs you want to list.",
+                    "items": {
+                        "maxLength": 300,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "maxItems": 50,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "filter": {
+                    "description": "<p>You can use this parameter to specify a subset of data to be included in the action's response.</p> <p>For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.</p>",
+                    "properties": {
+                        "completionTimeRange": {
+                            "description": "For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the <b>completedAt</b> property of the <a>AssessmentRun</a> data type.",
+                            "properties": {
+                                "beginDate": {
+                                    "description": "The minimum value of the timestamp range.",
+                                    "format": "date-time",
+                                    "type": "string"
+                                },
+                                "endDate": {
+                                    "description": "The maximum value of the timestamp range.",
+                                    "format": "date-time",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "durationRange": {
+                            "description": "For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the <b>durationInSeconds</b> property of the <a>AssessmentRun</a> data type.",
+                            "properties": {
+                                "maxSeconds": {
+                                    "description": "The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).",
+                                    "maximum": 86400,
+                                    "minimum": 180,
+                                    "type": "integer"
+                                },
+                                "minSeconds": {
+                                    "description": "The minimum value of the duration range. Must be greater than zero.",
+                                    "maximum": 86400,
+                                    "minimum": 180,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "namePattern": {
+                            "description": "For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the <b>assessmentRunName</b> property of the <a>AssessmentRun</a> data type.",
+                            "maxLength": 140,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "rulesPackageArns": {
+                            "description": "For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the <b>rulesPackages</b> property of the <a>AssessmentRun</a> data type.",
+                            "items": {
+                                "maxLength": 300,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "maxItems": 50,
+                            "minItems": 0,
+                            "type": "array"
+                        },
+                        "startTimeRange": {
+                            "description": "For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the <b>startTime</b> property of the <a>AssessmentRun</a> data type.",
+                            "properties": {
+                                "beginDate": {
+                                    "description": "The minimum value of the timestamp range.",
+                                    "format": "date-time",
+                                    "type": "string"
+                                },
+                                "endDate": {
+                                    "description": "The maximum value of the timestamp range.",
+                                    "format": "date-time",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "stateChangeTimeRange": {
+                            "description": "For a record to match a filter, the value that is specified for this data type property must match the <b>stateChangedAt</b> property of the <a>AssessmentRun</a> data type.",
+                            "properties": {
+                                "beginDate": {
+                                    "description": "The minimum value of the timestamp range.",
+                                    "format": "date-time",
+                                    "type": "string"
+                                },
+                                "endDate": {
+                                    "description": "The maximum value of the timestamp range.",
+                                    "format": "date-time",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "states": {
+                            "description": "For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data type.",
+                            "items": {
+                                "enum": [
+                                    "CREATED",
+                                    "START_DATA_COLLECTION_PENDING",
+                                    "START_DATA_COLLECTION_IN_PROGRESS",
+                                    "COLLECTING_DATA",
+                                    "STOP_DATA_COLLECTION_PENDING",
+                                    "DATA_COLLECTED",
+                                    "START_EVALUATING_RULES_PENDING",
+                                    "EVALUATING_RULES",
+                                    "FAILED",
+                                    "ERROR",
+                                    "COMPLETED",
+                                    "COMPLETED_WITH_ERRORS",
+                                    "CANCELED"
+                                ],
+                                "type": "string"
+                            },
+                            "maxItems": 50,
+                            "minItems": 0,
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "maxResults": {
+                    "description": "You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 10. The maximum value is 500.",
+                    "type": "integer"
+                },
+                "nextToken": {
+                    "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListAssessmentRuns</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data.",
+                    "maxLength": 300,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

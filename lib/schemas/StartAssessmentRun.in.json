@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "assessmentRunName": "examplerun",
+                "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
+            },
+            "properties": {
+                "assessmentRunName": {
+                    "description": "You can specify the name for the assessment run. The name must be unique for the assessment template whose ARN is used to start the assessment run.",
+                    "maxLength": 140,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "assessmentTemplateArn": {
+                    "description": "The ARN of the assessment template of the assessment run that you want to start.",
+                    "maxLength": 300,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "assessmentTemplateArn"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
