@@ -1,7 +1,7 @@
 {
     "name": "amazonaws-com-inspector-connector",
     "version": "2016.0.0",
-    "description": "<fullname>Amazon Inspector</fullname> <p>Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential security issues. For more information, see <a href=\"http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html\"> Amazon Inspector User Guide</a>.</p>",
+    "description": "Amazon Inspector Amazon Inspector enables you to analyze the behavior of your\nAWS resources and to identify potential security issues. For more information,\nsee Amazon Inspector User Guide\n[http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html]\n.",
     "main": "component.json",
     "dependencies": {
         "elasticio-node": "0.0.9",
